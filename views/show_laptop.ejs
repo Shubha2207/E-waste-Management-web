@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Management</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url("/images/background.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .container{
+            display: flex;
+            flex-direction: column; 
+        }
+        .item{
+            width: 20%;
+            
+            margin: 10px auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 8px 8px 18px gray;
+            background-color: rgba(255, 255, 255, 0.877);
+        }
+        .details{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+        span{
+            margin: 10px;
+
+            /* border: 1px solid gray;
+            border-radius: 5px;
+            margin: 5px; */
+        }
+        img{
+            width: 200px;
+            height: 150px;
+            margin: 10px auto;
+            border: 1px solid black;
+        }
+        button{
+            width: 40%;
+            border: none;
+            background-color: rgb(148, 86, 206);
+            border-radius: 10px;
+            margin: 8px;
+            padding: 8px;
+        }
+        .back button{
+            margin: 20px;
+            width: 10%;
+            border: none;
+            background-color: rgb(125, 57, 173);
+            color: rgb(15, 14, 14);
+        }
+        a:hover button{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back">
+            <a href="/myAccount/<%=employee._id%>"><button>Go Back</button></a>
+        </div>
+        <% items.forEach(function(item){ %>
+            <%if(item.type=="Laptop"){  %>
+                <div class="item">
+                    
+                        <img src="<%=item.image%>" alt="image">
+                        <span>Price : <%=item.price%></span>
+                        <a href="/items/<%=item._id%>_<%=employee._id%>"><button>Show More</button></a>
+                    
+                    <!-- <div class="details"> 
+                        <p><%=item.info%></p>
+                        <span>Quantity : <%=item.quantity%></span>
+                        <span>Price : <%=item.price%></span>
+                        <span>Email : <%=item.email%></span>
+                    </div>   -->
+                </div>
+            <%}%>
+           
+        <% }) %>
+    </div>
+</body>
+</html>

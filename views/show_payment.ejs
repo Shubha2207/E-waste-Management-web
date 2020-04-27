@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Management</title>
+    <style>
+        body{
+    background-image: url("/images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+    .container{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .heading{
+        margin: 10px;
+        background-color: rgba(31, 10, 10, 0.897);
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        padding: 15px 30px;
+        
+    }
+    .payment-list{
+        width: 80%;
+        margin: 10px auto;
+        padding: 10px 15px;
+        display: flex;
+        color: black;
+        background-color: rgb(255, 250, 250);
+        border-radius: 8px;
+        box-shadow: 5px 5px 10px gray;
+    }
+
+    .payment-list div{
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            Payments
+        </div>
+        
+            <% payments.forEach(function(payment){ %>
+            <div class="payment-list">
+                <div style="width: 85%;">
+                    Created: <%=payment.created.toDateString()%>
+                </div>
+                <div style="width: 10%;">
+                    <a href="/show_payment/<%=payment._id%>">Show More</a>
+                   
+                </div>
+            </div>
+            <% })%>
+        
+    </div>
+</body>
+</html>

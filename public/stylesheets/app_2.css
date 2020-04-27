@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+   display: flex;
+   flex-direction: column;
+}
+
+.form-field{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#add-form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 10px;
+}
+
+#add-form input, #add-form select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    color: black;
+}
+
+::placeholder{
+    color:black;
+}
+

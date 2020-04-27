@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Management</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            /* background-image: linear-gradient(to bottom right,powderblue,purple); */
+            background-image: url("images/background.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* height: 400px; */
+        }
+        .container{
+            margin: auto;
+        }
+        .error{
+            margin:200px auto;
+            width: 40%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.856);
+            box-shadow: 5px 5px 18px gray;
+            border-radius: 5px;
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+            padding: 10px;
+            margin: 10px auto;
+        }
+        button{
+            border: none;
+            border-radius: 2px;
+            background-color: rgb(113, 53, 153);
+            padding: 10px;
+            margin: 10px auto;
+        }
+        a{
+           
+            text-decoration:none;
+            color: white;
+            padding: 10px;
+            margin: 10px auto;
+        }
+        pre{
+            padding: 10px;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error">
+            <h2>Error</h2>
+            <strong><pre><%= error_msg%></pre></strong>
+            <button><a href="/employees/new">Go Back</a></button>
+        </div>
+    </div>
+</body>
+</html>

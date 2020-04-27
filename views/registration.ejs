@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Management</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            color: white;
+        }
+        body{
+            /* background-image: linear-gradient(to bottom right,powderblue,purple); */
+            background-image: url("images/background.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* height: 600px; */
+        }
+        .container{
+        }
+        .registration{
+            margin: auto;
+            margin-top:20px;
+            padding: 10px;
+            width: 50%;
+            background: rgba(23, 24, 24, 0.623);
+            box-sizing: border-box;
+            box-shadow: 5px 5px 18px gray;
+            border-radius: 5px;
+        }
+        #reg-form{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin: auto;
+        }
+
+        #reg-form input, #reg-form select{
+            margin:10px;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid black;
+            background: none;
+        }
+
+        ::placeholder{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="registration">
+            <div style="text-align: center;margin: 10px;text-shadow:  5px 5px 12px #888888;">
+                <h2>Registration Form</h2>
+            </div>
+            <form id="reg-form" action="/employees" method="POST">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="confirm_password" placeholder="Confirm Password">
+                <select name="applicant">
+                    <option value=""selected disabled hidden>Applicant</option>
+                    <option value="Admin" style="color: black;">Admin</option>
+                    <option value="Customer" style="color: black;">Customer</option>
+                </select>
+                <input type="text" name="email" placeholder="Email Address">
+                <input style="width: 50%; margin:10px auto; border: none; background-color: rgb(113, 53, 153); border-radius: 2px; color: white;" type="submit">    
+            </form>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
+

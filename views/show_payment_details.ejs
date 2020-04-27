@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ewaste Management</title>
+    <style>
+    body{
+    background-image: url("/images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+    .container{
+        width: 70%;
+        margin:40px auto;
+        display: flex;
+    }
+    .left{
+        width: 50%;
+        padding: 10px;
+        background-color: white;
+    }
+   
+    .date{
+        width: 40%;
+        margin: 10px;
+        padding: 5px 8px;
+        border: 1px solid rgb(212, 207, 207);
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+    .cust-head{
+        text-align: center;
+        font-size: 20px;
+        margin: 10px;
+        border-bottom: 1px solid gray;
+        border-top: 1px solid gray;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .customer label{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        /* font-weight: bold; */
+        margin: 5px 10px;
+    }
+    .customer p{
+        margin:5px 15px ;
+        padding: 10px;
+        border: 1px solid rgb(212, 207, 207);
+        border-radius: 8px;
+        margin-bottom: 15px;
+
+    }
+    .right{
+        width: 50%;
+        padding: 10px;
+        background-color: rgb(61, 9, 71);
+        color: white;
+    }
+
+    .vend-head{
+        text-align: center;
+        font-size: 20px;
+        margin: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgb(252, 249, 249);
+        border-top: 1px solid rgb(250, 247, 247);
+        padding: 10px;
+        color: white;
+    }
+    .vender label{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        /* font-weight: bold; */
+        margin: 5px 10px;
+    }
+    .vender p{
+        margin:5px 15px ;
+        padding: 10px;
+        border: 1px solid rgba(212, 207, 207, 0.774);
+        border-radius: 8px;
+        margin-bottom: 15px;
+
+    }
+    .vender .quan-pri div{
+        width: 50%;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="date">
+                Created : <%=payment.created.toDateString()%>
+            </div>
+            <div class="cust-head">
+                Customer Details
+            </div>
+            <div class="customer">
+                <label for="">Name :</label>
+                <p><%=payment.cardHolder%></p>
+                <label for="">Email :</label>
+                <p><%=payment.email%></p>
+                <label for="">Card Number :</label>
+                <p><%=payment.cardNo%></p>
+                
+            </div>
+        </div>
+        <div class="right">
+            <div class="vend-head">
+                Vendor Details
+            </div>
+            <div class="vender">
+                <label for="">Email :</label>
+                <p><%=item.email%></p>
+                <label for="">Item :</label>
+                <p><%=item.info%></p>
+                <div class="quan-pri" style="display: flex;">
+                    <div>
+                        <label for="">Quantity :</label>
+                        <p><%=item.quantity%></p>
+                    </div>
+                    <div>
+                        <label for="">Price :</label>
+                        <p><%=item.price%></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

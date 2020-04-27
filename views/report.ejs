@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>E-waste Management </title>
+    <style>
+        body{
+            background-image: url("/images/background.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 600px;
+        }
+        .container{
+            display: flex;
+        }
+        .payment{
+            /* padding: 10px; */
+            margin: 20px;
+            width: 50%;
+            background-color: rgba(255, 235, 205, 0.849);
+            display: flex;
+            flex-direction: column;
+        }
+        .payment .head{
+            font-size: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 15px;
+            /* width: 100%; */
+            background-color: rgb(248, 171, 54);
+        }
+        .pay-table{
+            display: flex;
+            margin: 10px;
+        }
+        .sold-item{
+            /* padding: 10px; */
+            margin: 20px;
+            width: 50%;
+
+            background-color: rgba(223, 174, 243, 0.856);
+        }
+        .sold-item .head{
+            font-size: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 15px;
+            /* width: 100%; */
+            color: white;
+            background-color: rgb(73, 7, 82);
+        }
+        .item-table{
+            display: flex;
+            margin: 10px;
+        }
+        .item-table div{
+            /* margin: 10px 0px; */
+        }
+        .table{
+            height: 400px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="payment">
+            <div class="head">
+                Payments
+            </div>
+        <div class="table">
+            <div class="pay-table">
+                <div class="customer" style="width: 30%; font-size: 20px;">Name</div>
+                <div class="email" style="width: 50%;font-size: 20px;">Email Address</div>
+                <div class="created" style="width: 20%;font-size: 20px;">Date</div>
+            </div>
+            <hr>
+            <%payments.forEach(function(payment){%>
+                <div class="pay-table">
+                    <div class="customer" style="width: 30%;"><%=payment.cardHolder%></div>
+                    <div class="email" style="width: 50%;"><%=payment.email%></div>
+                    <div class="created" style="width: 20%;"><%=payment.created.toDateString()%></div>
+                </div>
+                <hr>
+            <%})%>
+        </div>
+        </div>
+        <div class="sold-item">
+            <div class="head">
+                Sold Items
+            </div>
+        <div class="table">
+            <div class="item-table">
+                <div class="owner" style="width: 40%; font-size: 20px;">Owner</div>
+                <div class="item" style="width: 35%;font-size: 20px;">Item</div>
+                <div class="quantity" style="width: 15%;font-size: 20px;text-align: center;">Qty</div>
+                <div class="price" style="width: 10%;font-size: 20px;text-align: center;"><i class="fa fa-rupee" style="font-size:20px;"></i></div>
+             
+            </div>
+            <hr>
+            <%items.forEach(function(item){%>
+                <%if(item.sold){%>
+                    <div class="item-table">
+                        <div class="owner" style="width: 40%;"><%=item.email%></div>
+                        <div class="info" style="width: 35%;"><%=item.info%></div>
+                        <div class="quantity" style="width: 15%;text-align: center;"><%=item.quantity%></div>
+                        <div class="price" style="width: 10%;text-align: center;"><%=item.price%></div>
+                    </div>
+                    <hr>
+                <%}%>
+            <%})%>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

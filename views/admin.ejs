@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Management</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app_1.css">
+    <style>
+        body{
+    background-image: url("/images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+    .all-items{
+        width: 50%;
+        margin-left:200px ;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.877);
+        display: flex;
+        flex-direction: column;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 8px 10px 18px gray;
+    }
+    .upper{
+        display: flex;
+    }
+    .left,.right{
+        margin: 10px;
+    }
+    .right{
+        padding-top:50px ;
+    }
+    .right pre{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .right p{
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid rgba(161, 159, 159, 0.767);
+    }
+    h2{
+        margin: 0;
+        padding: 0;
+    }
+    img{
+        border: 1px solid black;
+    }
+    #email{
+        width: 20%;
+        border: 2px solid rgb(185, 42, 185);
+        background: none;
+        border-radius: 10px;
+    }
+    #delete{
+        width: 20%;
+        border: 2px solid rgb(228, 7, 7);
+        background: none;
+        border-radius: 10px;
+    }
+    #email:hover{
+        background-color:rgb(185, 42, 185) ;
+        color: white;
+    }
+    #delete:hover{
+        background-color:rgb(228, 7, 7) ;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-menu">
+            <ul style="float: left;">
+                <li style="float: left; margin-left:20px;font-size: 20px;background-color: rgba(36, 35, 35, 0.527);"><li><%=employee.applicant%></li></li>
+            </ul>
+            <ul>
+                <li><a href="/">Logout</a></li>
+                <li><a href="/payments">Payments</a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/items/new/<%=employee._id%>">Add Item</a></li>
+                <li><%=employee.username%></li>
+            </ul>
+        </div>
+
+        <% items.forEach(function(item){ %> 
+            <div class="all-items">
+                <div class="upper">
+                    <div class="left">
+                        <h2><%=item.type%></h2>
+                        <img src="<%=item.image%>" alt="item-image">
+                    </div>
+                    <div class="right">
+                        <pre>Price : <%=item.price%></pre> 
+                        <pre>Quantity : <%=item.quantity%></pre>
+                        <p><%=item.info%></p>
+                        <p>Email : <%=item.email%></p> 
+                    </div>
+                </div>
+                <div class="lower">
+                    <a href="https://gmail.com/" target="_blank"><button id="email">Send Email</button></a>
+                    <a href="/deleteItem/<%=item._id%>_<%=employee._id%>"><button id="delete">Delete</button></a>  
+                </div>
+
+            </div>
+        <% }) %>
+
+    </div>
+</body>
+</html>

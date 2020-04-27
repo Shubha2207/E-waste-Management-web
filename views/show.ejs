@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Management</title>
+    <style>
+        *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background-image: url("/images/background.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+            .container{
+                display: flex;
+                flex-direction: column; 
+            }
+            .item{
+                width: 50%;
+                margin: 40px auto;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 8px 8px 18px gray;
+                background-color: rgba(255, 255, 255, 0.877);
+            }
+            .image,.price{
+                margin: 10px;
+                /* padding: 10px; */
+            }
+            pre{
+                font-family: Arial, Helvetica, sans-serif;
+                margin-top: 10px;
+            }
+            .info{
+                width: 100%;
+                margin-top: 10px;
+                padding: 10px;
+                border: 1px solid rgb(202, 198, 198);
+                border-radius: 5px;
+            }
+            .email{
+                margin: 10px;
+                display: flex;
+                flex-direction: column;
+                
+            }
+            .email span{
+                width: 50%;
+                
+                padding: 10px;
+                border: 1px solid rgb(202, 198, 198);;
+            }
+            .email button{
+                padding: 10px;
+                margin-top: 10px;
+                border: none;
+                background-color: rgb(131, 34, 134);
+                border-radius: 10px;
+                color: white;
+            }
+            img{
+                width: 300px;
+                height: 200px;
+                border: 1px solid black;
+
+            }
+            .heading h1{
+                width: 70%;
+            }
+            .heading div{
+                width: 20%;
+                font-size: 20px;
+                padding: 10px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="heading" style="display: flex;">
+                <h1><%=foundItem.type%></h1>
+                <%if(foundItem.sold==true){%>
+                    <div style="color: red; text-align: right;">
+                        Sold-Out
+                    </div>
+                <%}else{%>
+                    <div style="color: green; text-align: right;">
+                        In-Stock
+                    </div>
+                <%}%>
+            </div>
+            <div class="image" style="display: flex;">
+                <img src="<%=foundItem.image%>" alt="Item-Image">
+    
+                <div class="price">
+                    <pre>Price:<%=foundItem.price%></pre>  
+                    <pre>Quantity:<%=foundItem.quantity%></pre>
+                    <div class="info">
+                        
+                        <p><%=foundItem.info%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="email">
+                <span>Email: <%=foundItem.email%></span>
+                <div>
+                <% if(foundItem.type=="Mobile"){ %>
+                <a href="/mobiles/<%=employee._id%>"><button>Go Back</button></a>
+                <%}%> 
+                <% if(foundItem.type=="Laptop"){%>
+                <a href="/laptops/<%=employee._id%>"><button>Go Back</button></a>
+                <%}%> 
+                <% if(foundItem.type=="Other"){%>
+                <a href="/others/<%=employee._id%>"><button>Go Back</button></a> 
+                <%}%>
+                
+                <% if(foundItem.sold==false){ %>
+                    <a  href="/payments/<%=foundItem._id%>_<%=employee._id%>"><button style="width: 20%; background-color: rgb(83, 132, 224);">Buy</button></a>
+                <%}else{ %>
+                    <a  href="/payments/<%=foundItem._id%>_<%=employee._id%>"><button style="width: 20%; color: black; background-color: rgb(157, 158, 158);" disabled>Buy</button></a>
+                <% } %>
+
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

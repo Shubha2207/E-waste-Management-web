@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Management</title>
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/app_2.css"> -->
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        color: white;
+        }
+        body{
+            background-image: url("/images/background.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .container{
+        display: flex;
+        flex-direction: column;
+        }
+
+        .form-field{
+            width: 40%;
+            margin:20px auto;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            text-align: center;
+            background: rgba(23, 24, 24, 0.548);
+            box-sizing: border-box;
+            box-shadow: 5px 5px 18px gray;
+            border-radius: 5px;
+        }
+
+        #add-form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            
+        }
+
+        #add-form input, #add-form select{
+            padding: 10px;
+            margin: 10px;
+            border:none;
+            border-bottom: 1px solid rgb(10, 10, 10);
+            background: none;
+        }
+
+        ::placeholder{
+            color:white;
+        }
+        option{
+            color: black;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-field">
+            <h2 style="text-shadow: 2px 2px 18px gray;">Edit Item</h2>
+            <form id="add-form" action="/updateItem/<%=foundItem._id%>" method="POST">
+                <select name="item[type]" id="" value="<%=foundItem.type%>">
+                    <option value="" disabled selected hidden>Item</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="text" name="item[email]" value="<%=foundItem.email%>">
+                <input type="text" name="item[image]" value="<%=foundItem.image%>">
+                <input type="number" name="item[quantity]" value="<%=foundItem.quantity%>">
+                <input type="text" name="item[price]" value="<%=foundItem.price%>">
+                <input type="text" name="item[info]" value="<%=foundItem.info%>">
+                <input type="submit" style="color: white; background-color: rgb(107, 70, 156);">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

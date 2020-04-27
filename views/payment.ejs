@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Managment</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+        body{
+            background-image: url("/images/background.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+     
+        button{
+            width: 10%;
+            margin: auto;
+            padding: 10px 15px;
+            border: none;
+            background-color: rgba(143, 58, 204, 0.664);
+        }
+
+        .container{
+            margin: auto;
+        }
+        .card-details{
+            width: 40%;
+            margin: 40px auto;
+            padding: 10px;
+            border: 1px solid gray;
+            box-shadow: 5px 5px 10px gray;
+            background-color: rgba(32, 30, 30, 0.767);
+            border-radius: 10px;
+        }
+        .card-details h2{
+            text-align: center;
+            margin: 10px;
+            color: white;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        form input{
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            background: none;
+            color: white;
+        }
+        ::placeholder{
+            color: white;
+        }
+
+        .card-details div{
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-details">
+            <h2>Payment Details</h2>
+            <form action="/payments/<%=newPayment._id%>" method="POST">
+                <input type="text" name="cardHolder" placeholder="Enter Your Name">
+                <input type="text" name="email" placeholder="Email Address">
+                <input type="text" name="cardNo" placeholder="Card Number">
+                <div>
+                    <input type="text" placeholder="CVV" style="width: 30%;">
+                    <input type="text" placeholder="Expiry Date" style="width: 60%;">
+                </div>
+                <input type="Submit" style="width: 30%; color: white; margin: 15px auto; border: none; border-radius: 5px; background-color: rgb(158, 63, 153);">
+            </form>
+        </div>
+    </div>
+  
+</body>
+</html>

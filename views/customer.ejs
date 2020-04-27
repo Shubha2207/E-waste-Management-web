@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-waste Management</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app_1.css">
+    <style>
+        body{
+    background-image: url("/images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-menu">
+            <ul>
+                <li style="float: left; margin-left:20px;font-size: 20px;background-color: rgba(36, 35, 35, 0.527);"><%=employee.applicant%></li>
+            </ul>
+            <ul>
+                <li><a href="/">Logout</a></li>
+                <li><a href="/items/new/<%=employee._id%>">Sell Item</a></li>
+                <li><a href="/myItems/<%=employee._id%>">My Items</a></li>
+                <li><%=employee.username%></li>
+            </ul>
+        </div>
+        <div class="items">
+            <div class="mobile">
+                <h2>Mobiles</h2>
+                <img src="/images/mobile.jpg" alt="">
+                <button> <a href="/mobiles/<%=employee._id%>">Show More</a> </button>
+            </div>
+            <div class="laptop">
+                <h2>Laptops</h2>
+                <img src="/images/laptop.jpg" alt="">
+                <button> <a href="/laptops/<%=employee._id%>">Show More</a> </button>
+            </div>
+            <div class="others">
+                <h2>Others</h2>
+                <img src="/images/others.jpg" alt="">
+                <button> <a href="/others/<%=employee._id%>">Show More</a> </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
